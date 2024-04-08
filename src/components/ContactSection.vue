@@ -29,17 +29,12 @@
     </div>
   </template>
   
-  <script>
-  import ButtonWrapper from "./ButtonWrapper.vue";
-  import InputField from "./InputField.vue";
-  
-  export default {
-    name: "ContactSection",
-    components: {
-      ButtonWrapper,
-      InputField,
-    },
-    props: {
+  <script setup lang="ts">
+    import ButtonWrapper from "./ButtonWrapper.vue";
+    import InputField from "./InputField.vue";
+    import {defineProps} from "vue";
+
+    defineProps({
       text: {
         type: String,
         default: "Lets work together",
@@ -71,8 +66,7 @@
         type: String,
         default: "",
       },
-    },
-  };
+    });
   </script>
   
   <style>

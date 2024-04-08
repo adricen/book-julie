@@ -2,10 +2,9 @@
     <input :class="['input-field', className]" />
   </template>
   
-  <script>
-  export default {
-    name: "InputField",
-    props: {
+  <script setup lang="ts">
+  import { defineProps } from "vue";
+    defineProps({
       label: {
         type: String,
         default: "Name",
@@ -14,8 +13,7 @@
         type: String,
         default: "",
       },
-    },
-  };
+    })
   </script>
   
   <style>

@@ -11,15 +11,10 @@
     />
   </template>
   
-  <script>
+  <script setup lang="ts">
   import ContactSection from "@/components/ContactSection.vue";
-  
-  export default {
-    name: "ContactSectionWrapper",
-    components: {
-      ContactSection,
-    },
-    props: {
+  import {defineProps} from "vue";
+    defineProps({
       contactSectionClassName: {
         type: String,
         default: "contact-section-3",
@@ -48,8 +43,7 @@
         type: String,
         default: "Contactez-moi",
       },
-    },
-  };
+    });
   </script>
   
   <style>
