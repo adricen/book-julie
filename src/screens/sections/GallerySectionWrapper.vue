@@ -12,27 +12,17 @@
     />
   </template>
   
-  <script>
-  import GallerySection from "@/components/GallerySection.vue";
+  <script setup lang="ts">
+    import GallerySection from "@/components/GallerySection.vue";
   
-  export default {
-    name: "GallerySectionWrapper",
-    components: {
-      GallerySection,
-    },
-    data() {
-      return {
-        galleryCardImage: "https://c.animaapp.com/57i96tuF/img/image-7@2x.png",
-        galleryCardImage1: "https://c.animaapp.com/57i96tuF/img/image-9@2x.png",
-        galleryCardImage2: "https://c.animaapp.com/57i96tuF/img/image-10@2x.png",
-        galleryCardImage3: "https://c.animaapp.com/57i96tuF/img/image-11@2x.png",
-        galleryCardImg: "https://c.animaapp.com/57i96tuF/img/image-8@2x.png",
-        galleryCardVersionClassName: "gallery-section-2",
-        hasFrame: false,
-        text: "PORTFOLIO",
-      };
-    },
-  };
+    const galleryCardImage = "https://c.animaapp.com/57i96tuF/img/image-7@2x.png";
+    const galleryCardImage1 = "https://c.animaapp.com/57i96tuF/img/image-9@2x.png";
+    const galleryCardImage2 = "https://c.animaapp.com/57i96tuF/img/image-10@2x.png";
+    const galleryCardImage3 = "https://c.animaapp.com/57i96tuF/img/image-11@2x.png";
+    const galleryCardImg = "https://c.animaapp.com/57i96tuF/img/image-8@2x.png";
+    const galleryCardVersionClassName = "gallery-section-2";
+    const hasFrame = false;
+    const text = "PORTFOLIO";
   </script>
   
   <style>

@@ -1,25 +1,23 @@
 <template>
     <a
-      :class="['button', className]"
-      href="https://www.animaapp.com"
-      rel="noopener noreferrer"
-      target="_blank"
+        :class="['button', className]"
+        href="https://www.animaapp.com"
+        rel="noopener noreferrer"
+        target="_blank"
     >
-      <div class="text-wrapper-4">Contact</div>
+        <div class="text-wrapper-4">Contact</div>
     </a>
-  </template>
+</template>
   
-  <script>
-  export default {
-    name: "Button",
-    props: {
-      className: {
+<script setup lang="ts">
+    import {defineProps} from "vue";
+    defineProps({
+        className: {
         type: String,
         default: "",
-      },
-    },
-  };
-  </script>
+        },
+    });
+</script>
   
   <style>
   .button {

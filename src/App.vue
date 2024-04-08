@@ -1,11 +1,12 @@
-<script setup lang="ts">
-// import HelloWorld from './components/HelloWorld.vue'
-import PortfolioTemplate from './screens/PortfolioTemplate.vue'
-</script>
 
 <template>
   <PortfolioTemplate />
 </template>
+
+<script setup lang="ts">
+// import HelloWorld from './components/HelloWorld.vue'
+import PortfolioTemplate from './screens/PortfolioTemplate.vue'
+</script>
 
 <style scoped>
 .logo {

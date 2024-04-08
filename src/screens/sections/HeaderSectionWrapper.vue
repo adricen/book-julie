@@ -11,24 +11,14 @@
     />
   </template>
   
-  <script>
-  import HeaderSection from "@/components/HeaderSection.vue";
-  
-  export default {
-    name: "HeaderSectionWrapper",
-    components: {
-      HeaderSection,
-    },
-    data() {
-      return {
-        headerimage: "https://c.animaapp.com/57i96tuF/img/headerimage-1-1@2x.png",
-        text: "TRANSMETTRE AVEC CREATIVITE",
-        text1: "Learning Designer",
-        text2: "Animée par un esprit créatif et des compétences avancées en design, je donne vie à des projets e-learning ludiques et pédagogiques. Mon sens de l’ergonomie garantit des contenus esthétiques et intuitifs. En équipe ou en solo, je m'épanouis et m'adapte avec enthousiasme.",
-        version: "one",
-      };
-    },
-  };
+  <script setup lang="ts">
+    import HeaderSection from "@/components/HeaderSection.vue";
+
+    const headerimage = "https://c.animaapp.com/57i96tuF/img/headerimage-1-1@2x.png";
+    const text = "TRANSMETTRE AVEC CREATIVITE";
+    const text1 = "Learning Designer";
+    const text2 = "Animée par un esprit créatif et des compétences avancées en design, je donne vie à des projets e-learning ludiques et pédagogiques. Mon sens de l’ergonomie garantit des contenus esthétiques et intuitifs. En équipe ou en solo, je m'épanouis et m'adapte avec enthousiasme.";
+    const version = "one";
   </script>
   
   <style>

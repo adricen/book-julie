@@ -1,109 +1,104 @@
 <template>
     <div class="gallery-section">
-      <div class="latest-work">{{ text }}</div>
-      <div v-if="hasFrame" class="frame">
+        <div class="latest-work">{{ text }}</div>
+        <div v-if="hasFrame" class="frame">
         <div class="text-wrapper-2">TOUS</div>
         <div class="text-wrapper-3">WEBDESIGN</div>
         <div class="text-wrapper-3">DIGITAL LEARNING</div>
         <div class="text-wrapper-3">GRAPHISME</div>
-      </div>
-  
-      <div class="cards-section-2">
+        </div>
+
+        <div class="cards-section-2">
         <GalleryCard
-          :class="galleryCardVersionClassName"
-          description="UI, Art drection"
-          :image="galleryCardImage"
-          imageClassName="gallery-card-instance"
-          title="Project title"
-          version="one"
+            :class="galleryCardVersionClassName"
+            description="UI, Art drection"
+            :image="galleryCardImage"
+            imageClassName="gallery-card-instance"
+            title="Project title"
+            version="one"
         />
         <GalleryCard
-          class="component"
-          description="UI, Art drection"
-          :image="galleryCardImg"
-          imageClassName="gallery-card-instance"
-          title="Project title"
-          version="one"
+            class="component"
+            description="UI, Art drection"
+            :image="galleryCardImg"
+            imageClassName="gallery-card-instance"
+            title="Project title"
+            version="one"
         />
         <GalleryCard
-          class="component"
-          description="UI, Art drection"
-          :image="galleryCardImage1"
-          imageClassName="gallery-card-instance"
-          title="Project title"
-          version="one"
+            class="component"
+            description="UI, Art drection"
+            :image="galleryCardImage1"
+            imageClassName="gallery-card-instance"
+            title="Project title"
+            version="one"
         />
         <GalleryCard
-          class="component"
-          description="UI, Art drection"
-          :image="galleryCardImage2"
-          imageClassName="gallery-card-instance"
-          title="Project title"
-          version="one"
+            class="component"
+            description="UI, Art drection"
+            :image="galleryCardImage2"
+            imageClassName="gallery-card-instance"
+            title="Project title"
+            version="one"
         />
         <GalleryCard
-          class="component"
-          description="UI, Art drection"
-          :image="galleryCardImage3"
-          imageClassName="gallery-card-instance"
-          title="Project title"
-          version="one"
+            class="component"
+            description="UI, Art drection"
+            :image="galleryCardImage3"
+            imageClassName="gallery-card-instance"
+            title="Project title"
+            version="one"
         />
         <GalleryCard
-          class="component"
-          description="UI, Art drection"
-          image="https://c.animaapp.com/57i96tuF/img/image-12@2x.png"
-          imageClassName="gallery-card-instance"
-          title="Project title"
-          version="one"
+            class="component"
+            description="UI, Art drection"
+            image="https://c.animaapp.com/57i96tuF/img/image-12@2x.png"
+            imageClassName="gallery-card-instance"
+            title="Project title"
+            version="one"
         />
-      </div>
+        </div>
     </div>
-  </template>
+    </template>
   
-  <script>
-  import GalleryCard from "./GalleryCard.vue";
+<script setup lang="ts">
+    import GalleryCard from "@/components/GalleryCard.vue";
+    import {defineProps} from 'vue';
   
-  export default {
-    name: "GallerySection",
-    components: {
-      GalleryCard,
-    },
-    props: {
-      text: {
-        type: String,
-        default: "Latest work",
-      },
-      hasFrame: {
-        type: Boolean,
-        default: true,
-      },
-      galleryCardVersionClassName: {
-        type: String,
-        default: "",
-      },
-      galleryCardImage: {
-        type: String,
-        default: "https://c.animaapp.com/57i96tuF/img/image@2x.png",
-      },
-      galleryCardImg: {
-        type: String,
-        default: "https://c.animaapp.com/57i96tuF/img/image-1@2x.png",
-      },
-      galleryCardImage1: {
-        type: String,
-        default: "https://c.animaapp.com/57i96tuF/img/image-2@2x.png",
-      },
-      galleryCardImage2: {
-        type: String,
-        default: "https://c.animaapp.com/57i96tuF/img/image-3@2x.png",
-      },
-      galleryCardImage3: {
-        type: String,
-        default: "https://c.animaapp.com/57i96tuF/img/image-4@2x.png",
-      },
-    },
-  };
+    defineProps({
+        text: {
+            type: String,
+            default: "Latest work",
+        },
+        hasFrame: {
+            type: Boolean,
+            default: true,
+        },
+        galleryCardVersionClassName: {
+            type: String,
+            default: "",
+        },
+        galleryCardImage: {
+            type: String,
+            default: "https://c.animaapp.com/57i96tuF/img/image@2x.png",
+        },
+        galleryCardImg: {
+            type: String,
+            default: "https://c.animaapp.com/57i96tuF/img/image-1@2x.png",
+        },
+        galleryCardImage1: {
+            type: String,
+            default: "https://c.animaapp.com/57i96tuF/img/image-2@2x.png",
+        },
+        galleryCardImage2: {
+            type: String,
+            default: "https://c.animaapp.com/57i96tuF/img/image-3@2x.png",
+        },
+        galleryCardImage3: {
+            type: String,
+            default: "https://c.animaapp.com/57i96tuF/img/image-4@2x.png",
+        },
+    });
   </script>
   
   <style>

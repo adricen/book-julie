@@ -12,51 +12,46 @@
     </div>
   </template>
   
-  <script>
+  <script setup lang="ts">
   import Button from "./Button.vue";
-  
-  export default {
-    name: "HeaderSection",
-    components: {
-      Button,
-    },
-    props: {
-      showButton: {
+  import {defineProps} from "vue";
+  defineProps({
+    showButton: {
         type: Boolean,
         default: true,
-      },
-      version: {
+    },
+    version: {
         type: String,
-        validator: function (value) {
-          return ["one"].indexOf(value) !== -1;
+        validator(value: string) {
+            return ["one"].indexOf(value as string) !== -1;
         },
-      },
-      text: {
+        default: "one",
+    },
+    text: {
         type: String,
         default: "Branding | Image making",
-      },
-      text1: {
+    },
+    text1: {
         type: String,
         default: "Visual Designer",
-      },
-      text2: {
+    },
+    text2: {
         type: String,
         default: "This is a template Figma file, turned into code using Anima. <br/>Learn more at AnimaApp.com",
-      },
-      headerimage: {
-        type: String,
-        default: "https://c.animaapp.com/57i96tuF/img/headerimage-1@2x.png",
-      },
-      className: {
-        type: String,
-        default: "",
-      },
-      headerimageClassName: {
-        type: String,
-        default: "",
-      },
     },
-  };
+    headerimage: {
+        type: String,
+        default: "https://c.animaapp.com/57i96tuF/img/headerimage-1@2x.png"
+    },
+    className: {
+        type: String,
+        default: "",
+    },
+    headerimageClassName: {
+        type: String,
+        default: "",
+    },
+  })
   </script>
   
   <style>

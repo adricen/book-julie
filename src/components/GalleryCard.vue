@@ -8,10 +8,9 @@
     </div>
   </template>
   
-  <script>
-  export default {
-    name: "GalleryCard",
-    props: {
+  <script setup lang="ts">
+    import {defineProps} from "vue";
+    defineProps({
       title: {
         type: String,
         default: "Project title",
@@ -22,7 +21,7 @@
       },
       version: {
         type: String,
-        validator: function (value) {
+        validator(value: string) {
           return ["one"].indexOf(value) !== -1;
         },
       },
@@ -38,8 +37,7 @@
         type: String,
         default: "",
       },
-    },
-  };
+    });
   </script>
   
   <style>
