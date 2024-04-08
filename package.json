@@ -1,5 +1,6 @@
 {
   "name": "julie-book",
+  "homepage": "book-julie",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,7 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "deploy": "yarn build && gh-pages -d dist"
+    "deploy": "yarn build && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "fs": "^0.0.1-security",
