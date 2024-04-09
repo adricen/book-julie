@@ -26,8 +26,9 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 100vh;
+  font-family: "Roboto Flex", sans-serif;
 }
 
 h1 {
@@ -59,9 +60,11 @@ button:focus-visible {
 }
 
 #app {
+  box-sizing: border-box;
   max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 

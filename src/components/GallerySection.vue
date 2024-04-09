@@ -63,8 +63,6 @@
   
 <script setup lang="ts">
     import GalleryCard from "@/components/GalleryCard.vue";
-    import {defineProps} from 'vue';
-  
     defineProps({
         text: {
             type: String,

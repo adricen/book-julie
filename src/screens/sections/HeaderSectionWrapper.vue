@@ -1,35 +1,38 @@
 <template>
-    <HeaderSection
-      class="header-section-instance"
-      :headerimage="headerimage"
-      headerimageClass="header-section-2"
-      :showButton="false"
-      :text="text"
-      :text1="text1"
-      :text2="text2"
-      :version="version"
-    />
-  </template>
+  <div class="header-section">
+    <ProfilPicture />
+    <div class="header-content">
+      <div class="title-subtitle">
+        <div class="branding-image sub_title">{{ text }}</div>
+        <div class="visual-designer orange title">{{ text1 }}</div>
+        <p class="this-is-a-template">Animée par un esprit <span class="text-highlight green">créatif</span> et des compétences avancées en design, je donne vie à des projets e-learning <span class="text-highlight orange">ludiques</span> et <span class="text-highlight orange">pédagogiques</span>. Mon sens de l’ergonomie garantit des contenus <span class="text-highlight green">esthétiques</span> et <span class="text-highlight green">intuitifs</span>. En équipe ou en solo, je m'épanouis et m'adapte avec enthousiasme.</p>
+      </div>
+    </div>
+  </div>
+</template>
   
   <script setup lang="ts">
-    import HeaderSection from "@/components/HeaderSection.vue";
+    import ProfilPicture from "@/components/ProfilPicture.vue";
 
-    const headerimage = "https://c.animaapp.com/57i96tuF/img/headerimage-1-1@2x.png";
     const text = "TRANSMETTRE AVEC CREATIVITE";
     const text1 = "Learning Designer";
-    const text2 = "Animée par un esprit créatif et des compétences avancées en design, je donne vie à des projets e-learning ludiques et pédagogiques. Mon sens de l’ergonomie garantit des contenus esthétiques et intuitifs. En équipe ou en solo, je m'épanouis et m'adapte avec enthousiasme.";
-    const version = "one";
   </script>
   
-  <style>
-  .header-section-instance {
-    align-self: stretch !important;
-    height: 391px !important;
-    width: 100% !important;
-  }
-  
-  .header-section-2 {
-    margin-bottom: -26.5px !important;
-    margin-top: -26.5px !important;
-  }
+<style lag="scss">
+    @import "@/assets/scss/_variables.scss";
+    .header-section {
+        font-size: 1.3rem;
+        .header-content {
+            padding: 1rem;
+            .title-subtitle {
+                position: relative;
+                /* top: 50%; */
+                /* transform: translateY(-50%); */
+                text-align: justify;
+                .branding-image, .visual-designer {
+                    text-align: center;
+                }
+            }
+        }
+    }
   </style>

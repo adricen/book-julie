@@ -2,22 +2,21 @@
     <div v-if="['one', 'three'].includes(version)" :class="['skills-card-icon', 'version', versionClassName]">
       <div :class="['overlap-group', overlapGroupClassName]" style="background-image: url(https://c.animaapp.com/57i96tuF/img/union-1@2x.png)">
         <img :class="['arrow', version]" alt="Arrow" :src="version === 'three' ? union : arrow" />
-        <img v-if="version === 'three'" class="img" alt="Arrow" src="arrow1" />
+        <img v-if="version === 'three'" class="img" alt="Arrow" :src="arrow1" />
       </div>
     </div>
   
     <img v-if="version === 'two'" :class="['skills-card-icon', 'version-2', versionClassName]" alt="Version" :src="img" />
   </template>
   
-  <script>
-  export default {
-    name: "SkillsCardIcon",
-    props: {
+  <script setup lang="ts">
+    defineProps({
       version: {
         type: String,
-        validator: function (value) {
+        validator(value: string) {
           return ["two", "three", "one"].indexOf(value) !== -1;
         },
+        default: "two",
       },
       versionClassName: {
         type: String,
@@ -42,9 +41,8 @@
       arrow1: {
         type: String,
         default: "https://c.animaapp.com/57i96tuF/img/arrow-7@2x.png",
-      },
-    },
-  };
+      }
+    });
   </script>
   
   <style>

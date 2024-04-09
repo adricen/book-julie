@@ -32,7 +32,6 @@
   <script setup lang="ts">
     import ButtonWrapper from "./ButtonWrapper.vue";
     import InputField from "./InputField.vue";
-    import {defineProps} from "vue";
 
     defineProps({
       text: {

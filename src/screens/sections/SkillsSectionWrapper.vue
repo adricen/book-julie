@@ -1,67 +1,31 @@
 <template>
-    <SkillsSection
-      class="skills-section-instance"
-      :override="override"
-      :skillsCard="skillsCard"
-      :skillsCard1="skillsCard1"
-      skillsCardDivClassName="skills-section-2"
-      :skillsCardHasDiv="skillsCardHasDiv"
-      :skillsCardHasDiv1="skillsCardHasDiv1"
-      skillsCardPropertyVerticalClassName="skills-section-2"
-      skillsCardPropertyVerticalClassNameOverride="skills-section-2"
-      skillsCardTitle="Webdesign"
-      skillsCardTitle1="Learning Design"
-      skillsCardTitle2="Graphisme"
-      :skillsCardVisible="skillsCardVisible"
-      version="one"
-    />
-  </template>
+    <section id="skills">
+        <SkillsCard :class="'adjust'" :skill="'Design'">
+            <GreenFly />
+        </SkillsCard>
+        <SkillsCard  :skill="'Learn'">
+            <OrangePicto />
+        </SkillsCard>
+        <SkillsCard :skill="'Feel'">
+            <BluePicto />
+        </SkillsCard>
+
+    </section>
+</template>
   
-  <script>
-  import SkillsSection from "@/components/SkillsSection.vue";
-  import SkillsCardIcon from "@/components/SkillsCardIcon.vue";
-  
-  export default {
-    name: "SkillsSectionWrapper",
-    components: {
-      SkillsSection,
-      SkillsCardIcon,
-    },
-    data() {
-      return {
-        override: (
-          <SkillsCardIcon
-            img="https://c.animaapp.com/57i96tuF/img/skills-card-icon-4@2x.png"
-            version="two"
-            versionClassName="skills-card-icon-5"
-          />
-        ),
-        skillsCard: (
-          <SkillsCardIcon
-            arrow="https://c.animaapp.com/57i96tuF/img/arrow-3-1@2x.png"
-            overlapGroupClassName="skills-card-icon-4"
-            version="one"
-            versionClassName="skills-card-icon-3"
-          />
-        ),
-        skillsCard1: (
-          <SkillsCardIcon
-            arrow1="https://c.animaapp.com/57i96tuF/img/arrow-7-1@2x.png"
-            overlapGroupClassName="skills-card-icon-6"
-            union="https://c.animaapp.com/57i96tuF/img/union-3@2x.png"
-            version="three"
-            versionClassName="skills-card-icon-3"
-          />
-        ),
-        skillsCardHasDiv: false,
-        skillsCardHasDiv1: false,
-        skillsCardVisible: false,
-      };
-    },
-  };
-  </script>
+<script setup lang="ts">
+  import SkillsCard from "@/components/SkillsCard.vue";
+  import OrangePicto from "@/components/picto/OrangePicto.vue";
+  import GreenFly from "@/components/picto/GreenFly.vue";
+  import BluePicto from "@/components/picto/BluePicto.vue";
+</script>
   
   <style>
+  #skills {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
   .skills-section-instance {
     align-self: stretch !important;
     gap: unset !important;

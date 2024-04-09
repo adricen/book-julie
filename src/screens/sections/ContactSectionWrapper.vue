@@ -13,7 +13,6 @@
   
   <script setup lang="ts">
   import ContactSection from "@/components/ContactSection.vue";
-  import {defineProps} from "vue";
     defineProps({
       contactSectionClassName: {
         type: String,

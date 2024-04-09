@@ -1,43 +1,39 @@
 <template>
     <img
-      :class="['version-wrapper', `version-${version}`, className]"
-      alt="Version"
-      :src="getImageSource"
+        :class="['version-wrapper', `version-${version}`, className]"
+        alt="Version"
+        :src="getImageSource"
     />
-  </template>
+</template>
   
-  <script>
-  export default {
-    name: "VersionWrapper",
-    props: {
-      version: {
-        type: String,
-        default: "two",
-        validator: function (value) {
-          return ["two", "three", "one"].indexOf(value) !== -1;
+<script setup lang="ts">
+    import {computed} from "vue";
+    const props = defineProps({
+        version: {
+            type: String,
+            default: "two",
+            validator(value:string) {
+                return ["two", "three", "one"].indexOf(value) !== -1;
+            },
         },
-      },
-      className: {
-        type: String,
-        default: "",
-      },
-      img: {
-        type: String,
-        default: "https://c.animaapp.com/57i96tuF/img/version-1@2x.png",
-      },
-      version1: {
-        type: String,
-        default: "https://c.animaapp.com/57i96tuF/img/version-3@2x.png",
-      },
-    },
-    computed: {
-      getImageSource() {
-        if (this.version === "two") return "https://c.animaapp.com/57i96tuF/img/version-2-1@2x.png";
-        if (this.version === "one") return this.img;
-        return this.version1;
-      },
-    },
-  };
+        className: {
+            type: String,
+            default: "",
+        },
+        img: {
+            type: String,
+            default: "https://c.animaapp.com/57i96tuF/img/version-1@2x.png",
+        },
+        version1: {
+            type: String,
+            default: "https://c.animaapp.com/57i96tuF/img/version-3@2x.png",
+        },
+    });
+    const getImageSource = computed(() => {
+      if (props.version === "two") return "https://c.animaapp.com/57i96tuF/img/version-2-1@2x.png";
+      if (props.version === "one") return props.img;
+      return props.version1;
+    });
   </script>
   
   <style>

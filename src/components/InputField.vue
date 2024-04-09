@@ -3,17 +3,16 @@
   </template>
   
   <script setup lang="ts">
-  import { defineProps } from "vue";
     defineProps({
-      label: {
-        type: String,
-        default: "Name",
-      },
-      className: {
-        type: String,
-        default: "",
-      },
-    })
+        label: {
+            type: String,
+            default: "Name",
+        },
+        className: {
+            type: String,
+            default: "",
+        },
+    });
   </script>
   
   <style>

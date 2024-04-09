@@ -29,62 +29,51 @@
     </div>
   </template>
   
-  <script>
-  import SkillsCard from "./SkillsCard.vue";
-  
-  export default {
-    name: "SkillsSection",
-    components: {
-      SkillsCard,
-    },
-    props: {
-      version: {
-        type: String,
-        default: "one",
-        validator: function (value) {
-          return ["one"].indexOf(value) !== -1;
+  <script setup lang="ts">
+    import SkillsCard from "@/components/SkillsCard.vue";
+    defineProps({
+        version: {
+            type: String,
+            default: "one",
+            validator(value:string) {
+                return ["one"].indexOf(value) !== -1;
+            },
         },
-      },
-      className: {
-        type: String,
-        default: "",
-      },
-      skillsCardHasDiv: {
-        type: Boolean,
-        default: undefined,
-      },
-      skillsCardTitle: {
-        type: String,
-        default: "Product Design",
-      },
-      skillsCardVisible: {
-        type: Boolean,
-        default: undefined,
-      },
-      skillsCardTitle1: {
-        type: String,
-        default: "Visual Design",
-      },
-      skillsCardHasDiv1: {
-        type: Boolean,
-        default: undefined,
-      },
-      skillsCardTitle2: {
-        type: String,
-        default: "Art Direction",
-      },
-    },
-    data() {
-      return {
-        skillsCardPropertyVerticalClassName: undefined,
-        skillsCardPropertyVerticalClassNameOverride: undefined,
-        skillsCardDivClassName: undefined,
-        skillsCard: undefined,
-        override: undefined,
-        skillsCard1: undefined,
-      };
-    },
-  };
+        className: {
+            type: String,
+            default: "",
+        },
+        skillsCardHasDiv: {
+            type: Boolean,
+            default: undefined,
+        },
+        skillsCardTitle: {
+            type: String,
+            default: "Product Design",
+        },
+        skillsCardVisible: {
+            type: Boolean,
+            default: undefined,
+        },
+        skillsCardTitle1: {
+            type: String,
+            default: "Visual Design",
+        },
+        skillsCardHasDiv1: {
+            type: Boolean,
+            default: undefined,
+        },
+        skillsCardTitle2: {
+            type: String,
+            default: "Art Direction",
+        },
+    });
+    const skillsCardPropertyVerticalClassName= undefined;
+    const skillsCardPropertyVerticalClassNameOverride= undefined;
+    const skillsCardDivClassName= undefined;
+    const skillsCard= undefined;
+    const override= undefined;
+    const skillsCard1= undefined;
   </script>
   
   <style>
