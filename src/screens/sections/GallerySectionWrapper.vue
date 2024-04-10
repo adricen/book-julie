@@ -1,28 +1,82 @@
 <template>
-    <GallerySection
-      class="gallery-section-instance"
-      :galleryCardImage="galleryCardImage"
-      :galleryCardImage1="galleryCardImage1"
-      :galleryCardImage2="galleryCardImage2"
-      :galleryCardImage3="galleryCardImage3"
-      :galleryCardImg="galleryCardImg"
-      :galleryCardVersionClassName="galleryCardVersionClassName"
-      :hasFrame="hasFrame"
-      :text="text"
-    />
-  </template>
+  <section id="portfolio">
+    <h3 class="title">{{ title }}</h3>
+    <div v-for="item in galleryItems">
+      <GalleryCard
+        :title="item.title"
+        :description="item.description"
+        :thumbnail="item.thumbnail"
+        :contentType="item.contentType"
+      />
+    </div>
+  </section>
+</template>
   
-  <script setup lang="ts">
-    import GallerySection from "@/components/GallerySection.vue";
-  
-    const galleryCardImage = "https://c.animaapp.com/57i96tuF/img/image-7@2x.png";
-    const galleryCardImage1 = "https://c.animaapp.com/57i96tuF/img/image-9@2x.png";
-    const galleryCardImage2 = "https://c.animaapp.com/57i96tuF/img/image-10@2x.png";
-    const galleryCardImage3 = "https://c.animaapp.com/57i96tuF/img/image-11@2x.png";
-    const galleryCardImg = "https://c.animaapp.com/57i96tuF/img/image-8@2x.png";
-    const galleryCardVersionClassName = "gallery-section-2";
-    const hasFrame = false;
-    const text = "PORTFOLIO";
+<script setup lang="ts">
+  import GalleryCard from "@/components/GalleryCard.vue";
+  import frontMatter from 'front-matter';
+  import {ref, onMounted} from "vue";
+  import type IProject from "@/interfaces/IProject";
+
+  const title = "PORTFOLIO";
+
+  const galleryItems = ref<IProject[]>([]);
+
+  onMounted(() => {
+    const markdownUrl = import.meta.glob('@/portfolio/*.md');
+    for (const path in markdownUrl) {
+      fetch(path).then((response) => {
+        response.text().then((data) => {
+          const { attributes }  = frontMatter(data);
+          if (attributes) {
+            galleryItems.value.push(attributes as IProject);
+          }
+        });
+      });
+    }
+  });
+  // const galleryItems = computed(() => {
+  //   return [
+  //     {
+  //       title: "Project 1",
+  //       slug: "project-1",
+  //       description: "lorem ipsum endolores emploarei zaeazoj",
+  //       tags: ["UI", "Art", "drection"],
+  //       thumbnail: "https://c.animaapp.com/57i96tuF/img/image-7@2x.png",
+  //       contentType: "image" // [viedo, image, scorm]
+  //     },{
+  //       title: "Project 2",
+  //       slug: "project-2",
+  //       description: "lorem ipsum endolores emploarei zaeazoj",
+  //       tags: ["UI", "Art", "drection"],
+  //       thumbnail: "https://c.animaapp.com/57i96tuF/img/image-9@2x.png",
+  //       contentType: "image" // [viedo, image, scorm]
+  //     },{
+  //       title: "Project 3",
+  //       slug: "project-3",
+  //       description: "lorem ipsum endolores emploarei zaeazoj",
+  //       tags: ["UI", "Art", "drection"],
+  //       thumbnail: "https://c.animaapp.com/57i96tuF/img/image-10@2x.png",
+  //       contentType: "image" // [viedo, image, scorm]
+  //     },{
+  //       title: "Project 4",
+  //       slug: "project-4",
+  //       description: "lorem ipsum endolores emploarei zaeazoj",
+  //       tags: ["UI", "Art", "drection"],
+  //       thumbnail: "https://c.animaapp.com/57i96tuF/img/image-11@2x.png",
+  //       contentType: "image" // [viedo, image, scorm]
+  //     },{
+  //       title: "Project 5",
+  //       slug: "project-5",
+  //       description: "lorem ipsum endolores emploarei zaeazoj",
+  //       tags: ["UI", "Art", "drection"],
+  //       thumbnail: "https://c.animaapp.com/57i96tuF/img/image-8@2x.png",
+  //       contentType: "image" // [viedo, image, scorm]
+  //     }
+  //   ]
+  // })
+    
+
   </script>
   
   <style>
