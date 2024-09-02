@@ -21,5 +21,10 @@ export default defineConfig({
             additionalData: `@import "@/assets/scss/global.scss";`,
         },
     },
-},
+  },
+  server: {
+    watch: {
+      usePolling: true,
+    }
+  },
 })
