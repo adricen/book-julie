@@ -1,0 +1,22 @@
+$color-primary: #6C11DF;
+$color-secondary: #00aa00;
+$color-tertiary: #FFA500;
+
+.green {
+    color: $color-secondary;
+}
+.green-back {
+    background-color: $color-secondary;
+}
+.orange {
+    color: $color-tertiary;
+}
+.orange-back {
+    background-color: $color-tertiary;
+}
+.blue {
+    color: $color-primary;
+}
+.blue-back {
+    background-color: $color-primary;
+}

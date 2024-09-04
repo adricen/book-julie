@@ -2,7 +2,8 @@
 <template>
     <div class="content-wrapper">
         <MainHeader />
-        <HomeTemplate />
+        <router-view />
+        <!-- <HomeTemplate /> -->
     </div>
 </template>
 
