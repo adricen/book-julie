@@ -1,5 +1,6 @@
 import frontMatter from 'front-matter';
 import IProject from '@/typescript/IProject';
+import markdownit from 'markdown-it'
 
 const MDController = {
     /**
@@ -23,7 +24,21 @@ const MDController = {
             )
         }
         return fileAttributes;
-    }
+    },
+
+    getMdContent: (slug: string): any => new Promise((resolve) => {
+        // const markdownUrl = import.meta.glob(`@/assets/portfolio/*.md`);
+        fetch(`/src/assets/portfolio/${slug}.md`)
+            .then((response) => {
+                response.text()
+                    .then((data) => {
+                        const md = markdownit();
+                        const { body }  = frontMatter(data);
+                        resolve(md.render(body))
+                    });
+            });
+    }),
+
 };
 
 export default MDController;

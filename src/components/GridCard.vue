@@ -10,8 +10,10 @@
         <div class="thumbnail w-full h-full absolute top-0 bg-cover bg-center z-0" :style="{ backgroundImage: `url(${thumbnail})`}"></div>
         <!-- TODO: Ajouter animation hover -->
         <div class="text z-10 absolute ">
-            <div class="title">{{ title }}</div>
-            <div class="description">{{ description }}</div>
+            <a :href="`#/article/${slug}`">
+                <div class="title">{{ title }}</div>
+                <div class="description">{{ description }}</div>
+            </a>
         </div>
     </div>
   </template>
@@ -28,17 +30,18 @@
         description: String,
         thumbnail: String,
         contentType: String,
-        index: Number
+        index: Number,
+        slug: String
     });
     onMounted(() => {
         // TODO: Set width based on img ratio
         width.value = window.getComputedStyle(item.value).width;
+        // console.log(props.slug);
         if ((props.index || 0)%5 === 0) {
             height.value = `${parseInt(window.getComputedStyle(item.value).width) / 2}px`;
         } else {
             height.value = `${parseInt(window.getComputedStyle(item.value).width) * 2}px`;
         }   
-    
     });
   
 </script>

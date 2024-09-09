@@ -3,13 +3,11 @@
     <div class="content-wrapper">
         <MainHeader />
         <router-view />
-        <!-- <HomeTemplate /> -->
     </div>
 </template>
 
 <script setup lang="ts">
     import MainHeader from '@/components/MainHeader.vue'
-    import HomeTemplate from '@/templates/HomeTemplate.vue'
 </script>
 
 <style scoped>
