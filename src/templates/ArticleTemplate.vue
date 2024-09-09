@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class="w-full px-10">
-            <StoryLine :name="'plonge-ucpa'" />
+            <StoryLine :name="'artwork'" />
             <div class="prose prose-md" v-html="mainContent"></div>
         </section>
 
