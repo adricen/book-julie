@@ -1,6 +1,6 @@
 <template>
     <div 
-        ref="item"
+        ref="mainBg"
         :style="`height: ${height}`"
         :class="[
             'w-full h-auto relative',
@@ -8,21 +8,25 @@
         ]"
     >
         <div class="thumbnail w-full h-full absolute top-0 bg-cover bg-center z-0" :style="{ backgroundImage: `url(${thumbnail})`}"></div>
-        <!-- TODO: Ajouter animation hover -->
-        <div class="text z-10 absolute ">
-            <a :href="`#/article/${slug}`">
-                <div class="title">{{ title }}</div>
-                <div class="description">{{ description }}</div>
+        <div :class="[
+            `w-full text z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center transition-opacity text-white`,
+            // ' opacity-0 hover:opacity-100',
+            ]">
+            <a :href="`#/article/${slug}`" class="">
+                <div class="title font-black text-4xl w-full ">{{ title }}</div>
+                <div class="description font-bold ">{{ description }}</div>
             </a>
         </div>
     </div>
   </template>
   
 <script setup lang="ts">
-    import { onMounted, ref } from 'vue';
-    const item = ref();
-    const width = ref();
+    import { onMounted, onUnmounted, ref} from 'vue';
+    import { defineProps } from 'vue';
+    import ImgHelper from '@/helpers/ImgHelper';
     
+
+    const mainBg = ref();
     const height = ref();
     
     const props = defineProps({
@@ -33,70 +37,34 @@
         index: Number,
         slug: String
     });
+    const setImgRatio = async (url?: string) => {
+        if (!url) return;
+        const imgRatio = ImgHelper.getImgRatio(url)
+        imgRatio.then((ratio) => {
+            if (ratio instanceof Error) {
+                throw new Error('Error getting img ratio');
+            }
+            if ((props.index || 0)%5 === 0) {
+                
+                const computedImg = window.getComputedStyle(mainBg.value);
+                height.value = `${parseInt(computedImg.width) / 2 * ratio}px`;
+            } else {
+                const computedImg = window.getComputedStyle(mainBg.value);
+                height.value = `${parseInt(computedImg.width) * ratio}px`;
+           
+            }
+        });
+    }
+    const eventCallback = () => {
+        setImgRatio(props.thumbnail);
+    }
+   
     onMounted(() => {
-        // TODO: Set width based on img ratio
-        width.value = window.getComputedStyle(item.value).width;
-        // console.log(props.slug);
-        if ((props.index || 0)%5 === 0) {
-            height.value = `${parseInt(window.getComputedStyle(item.value).width) / 2}px`;
-        } else {
-            height.value = `${parseInt(window.getComputedStyle(item.value).width) * 2}px`;
-        }   
+        setImgRatio(props.thumbnail);
+        window.addEventListener('resize', eventCallback);
+    });
+    onUnmounted(() => {
+        window.removeEventListener('resize', eventCallback);
     });
   
 </script>
-<style lang="scss">
-    // .gallery-card {
-    //     align-items: flex-start;
-    //     display: flex;
-    //     flex-direction: column;
-    //     gap: 24px;
-    //     position: relative;
-    //     margin: 2rem;
-    //     .thumbnail {
-    //         align-self: stretch;
-    //         height: 330px;
-    //         position: relative;
-    //         width: 100%;
-    //         background-position: center;
-    //         background-size: cover;
-    //     }
-    //     .title-description {
-    //         align-items: flex-start;
-    //         align-self: stretch;
-    //         display: flex;
-    //         flex: 0 0 auto;
-    //         flex-direction: column;
-    //         gap: 8px;
-    //         position: absolute;
-    //         width: 80%;
-    //         bottom: 2rem;
-    //         margin:auto;
-    //         left: 0;
-    //         right: 0;
-    //         background-color: rgba(0, 0, 0, 0.5);
-    //         .project-title {
-    //           align-self: stretch;
-    //           color: var(--black);
-    //           font-family: "Epilogue", Helvetica;
-    //           font-size: 20px;
-    //           font-weight: 600;
-    //           letter-spacing: 0;
-    //           line-height: 30px;
-    //           margin-top: -1px;
-    //           position: relative;
-    //         }
-    //         .description {
-    //           align-self: stretch;
-    //           color: var(--black);
-    //           font-family: var(--body-text-font-family);
-    //           font-size: var(--body-text-font-size);
-    //           font-style: var(--body-text-font-style);
-    //           font-weight: var(--body-text-font-weight);
-    //           letter-spacing: var(--body-text-letter-spacing);
-    //           line-height: var(--body-text-line-height);
-    //           position: relative;
-    //         }
-    //     }
-    // }
-</style>

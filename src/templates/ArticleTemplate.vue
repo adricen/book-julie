@@ -20,7 +20,7 @@
     onMounted(() => {
         MDController.getMdContent(slug.value as string)
             .then((content: string) => {
-                console.log(content);
+                // console.log(content);
                 mainContent.value = content
             });
     });
