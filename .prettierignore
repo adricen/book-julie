@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+coverage
+node_modules/
+vite.config.ts
+src/components/icons/*.vue
+*.gltf
+.gitlab/
+package-lock.json
