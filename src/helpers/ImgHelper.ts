@@ -11,7 +11,7 @@ class ImgHelper {
         if (!img) {
             throw new Error('Image URL is required');
         }
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const image = ImgHelper.loadImg(img);
             image.then((image: HTMLImageElement) => {
                 resolve(image.height / image.width);
