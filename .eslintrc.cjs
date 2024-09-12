@@ -3,7 +3,7 @@ require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
     root: true,
-    'extends': [
+    extends: [
         'airbnb-base',
         'plugin:vue/vue3-recommended',
         'eslint:recommended',
@@ -144,4 +144,5 @@ module.exports = {
             },
         ],
     },
+    ignorePatterns: ['node_modules', 'dist', 'public', 'coverage', 'cypress', 'old-src'],
 };
